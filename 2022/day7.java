@@ -89,7 +89,7 @@ public class day7_1 {
 		return path.stream().map(e -> e + "/").collect(Collectors.joining()).substring(1);
 	}
 
-	public static void main(String[] args) throws IOException {	
+	private static void input() throws IOException {
 		Scanner in = new Scanner(new File("input"));
 		Stack<String> cwd = new Stack();
 
@@ -146,7 +146,10 @@ public class day7_1 {
 		}
 
 		Data.compileFileSystem();
+	}
 
+	public static void main(String[] args) throws IOException {	
+		input();
 		// for (Data data: Data.file_system)
 		// 	System.out.println(data.path + "/" + data.name + ": " + (data.files.isEmpty() ? data.size : data.files));
 
@@ -155,8 +158,8 @@ public class day7_1 {
 			if (data.isFolder)
 				folders.add(data);
 
-		for (Data data: folders)
-			System.out.println(data.name + " " + data.size);
+		// for (Data data: folders)
+		// 	System.out.println(data.name + " " + data.size);
 
 		long best_size = Long.MAX_VALUE;
 		long required = 30000000 - (70000000 - Data.ROOT_DIRECTORY.size);
